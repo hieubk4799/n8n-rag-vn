@@ -27,7 +27,7 @@ class EmbeddingService:
             preprocessor: Optional TextPreprocessor instance
         """
         logger.info(f"Loading embedding model: {model_name}")
-        self.model = SentenceTransformer(model_name)
+        self.model = SentenceTransformer(model_name, trust_remote_code=True)
         self.model_dim = self.model.get_sentence_embedding_dimension()
         logger.info(f"Model loaded. Embedding dimension: {self.model_dim}")
         
